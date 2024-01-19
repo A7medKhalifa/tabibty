@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">tabibty</string>
+    <string name="app_name">Tabibty</string>
+    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
+    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">JGrioEHf6SqwHI7_2FeFhsuGUSscbAs6fQJwN</string>
+    <string name="facebook_app_id">326705649713468</string>
+    <string name="facebook_client_token">1ecca12eab9117285c7c58a090326ded</string>
 </resources>

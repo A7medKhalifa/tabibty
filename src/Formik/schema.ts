@@ -26,6 +26,12 @@ export const RegistSchema = Yup.object().shape({
     Government:  Yup.object().required('من فضلك أختري المحافظه'),
 })
 
+export const EditProfileSchema = Yup.object().shape({
+    FullName: Yup.string().required('من فضلك أدخلي الأسم'),
+    City:  Yup.object().required('من فضلك أختري المدينه'),
+    Government:  Yup.object().required('من فضلك أختري المحافظه'),
+})
+
 export const ResetSchema = Yup.object().shape({
     Password: Yup.string().required('من فضلك أدخلي كلمه المرور').min(8, 'كلمه المرور لا يجب أن تقل عن ٨ أحرف أو أرقام'),
     ConfirmPassword: Yup.string().required('من فضلك أدخلي كلمه المرور').min(8, 'كلمه المرور لا يجب أن تقل عن ٨ أحرف أو أرقام').oneOf([Yup.ref('Password'), null], "كلمتا المرور غير متطابقا")
@@ -36,4 +42,10 @@ export const ContactUsSchema = Yup.object().shape({
     FullName: Yup.string().required('من فضلك أدخلي الأسم'),
     Email: Yup.string().required('من فضلك أدخلي بريدك الإلكتروني').matches(EmailReg, 'من فضلك أدخلي بريد صحيح'),
     message: Yup.string().required('من فضلك أدخلي محتوي الرساله'),
+})
+
+export const changeSchema = Yup.object().shape({
+    OldPassword: Yup.string().required('من فضلك أدخلي كلمه المرور القديمه').min(8, 'كلمه المرور لا يجب أن تقل عن ٨ أحرف أو أرقام'),
+    Password: Yup.string().required('من فضلك أدخلي كلمه المرور الجديده').min(8, 'كلمه المرور لا يجب أن تقل عن ٨ أحرف أو أرقام'),
+    ConfirmPassword: Yup.string().required('من فضلك أدخلي كلمه المرور الجديده').min(8, 'كلمه المرور لا يجب أن تقل عن ٨ أحرف أو أرقام').oneOf([Yup.ref('Password'), null], "كلمتا المرور غير متطابقا")
 })

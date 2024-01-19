@@ -22,7 +22,7 @@ const ForgetPasswordScreen = () => {
                     <Back />
                 </TouchableOpacity>
                 <Text style={styles.Header}>طبيبتي</Text>
-                <Text style={styles.Title}>كلمة السر</Text>
+                <Text style={styles.Title}>كلمة المرور</Text>
                 <Text style={styles.SocialText}>لا عليكِ، أدخلي بريدك الألكتروني لأرسال كلمة سر جديدة</Text>
                 <Form />
             </KeyboardAwareScrollView>

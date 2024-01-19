@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '600',
         fontFamily: Fonts.Messiri,
-        color: Colors().lblack
+        color: Colors().lblack,
+        width:'66%',
     },
     Profile: {
         fontSize: 12,

@@ -9,13 +9,13 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: Colors().primary
+        borderColor: Colors().primary,
+        borderWidth: 1
     },
     buttonText: {
         fontSize: 18,
         fontFamily: Fonts.Messiri,
         textAlign: 'center',
-        color: '#ffffff',
         fontWeight: '600'
     },
     loader: {

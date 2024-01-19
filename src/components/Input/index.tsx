@@ -44,9 +44,8 @@ const CustomInput = ({
                     style={[styles.InputStyle, {
                         width: Icon ? '90%' : '100%',
                         height: multiline ? 280 : 49,
-                        paddingTop: (multiline && Platform.OS == 'ios') ? 15 : 0
+                        paddingTop: (multiline && Platform.OS == 'ios') ? 15 : 15
                     }]}
-                    autoCapitalize='none'
                     secureTextEntry={secureTextEntry ? secure : false}
                     onChangeText={handleChange(Label.replace("-", ' ').replace(/\s/g, ''))}
                 />

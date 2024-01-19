@@ -1,4 +1,5 @@
 interface userState {
+    done: boolean
     HomeData: {
         topRatedDoctors: [
             {
@@ -52,12 +53,25 @@ interface userState {
         },
     ]
     Articles: []
-    Saves: []
+    Saves: [],
+    Search: [],
+    Favourites: any
+    details: any
+    reviews: any
+    edit: any
+    comment: any
 }
 
 export const initialState: userState = {
+    done: false,
     HomeData: {},
     Clinics: [],
     Articles: [],
+    Search: [],
     Saves: [],
+    Favourites: {},
+    details: {},
+    reviews: [],
+    edit: undefined,
+    comment: ''
 }

@@ -21,6 +21,7 @@ function Form() {
       initialValues={login_initial_values}
       validationSchema={LoginSchema}
       onSubmit={values => {
+        console.log(values)
         setLoading(true)
         dispatch(AuthThunks.doSignIn({
           email: values.Email,
@@ -42,13 +43,13 @@ function Form() {
             />
             <CustomInput
               {...props}
-              name='كلمة السر'
+              name='كلمة المرور'
               Label="Password"
               placeholder="Password"
               secureTextEntry
               Icon={<Lock />}
             />
-            <Text onPress={() => navigate('ForgetPassword')} style={styles.ForgetText}>هل نسيتِ كلمة السر؟</Text>
+            <Text onPress={() => navigate('ForgetPassword')} style={styles.ForgetText}>هل نسيتِ كلمة المرور</Text>
             <Text style={styles.SocialText}>أو يمكنكِ التسجيل من خلال</Text>
             <Social name='gmail' />
             <Social name='facebook' />

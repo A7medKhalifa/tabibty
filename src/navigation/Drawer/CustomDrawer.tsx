@@ -1,27 +1,29 @@
 
 import React from 'react';
-import { SafeAreaView, Text, Dimensions, View, TouchableOpacity, Image, } from 'react-native';
+import { SafeAreaView, Text, Dimensions, View, TouchableOpacity,  } from 'react-native';
 import { DrawerContentScrollView, } from '@react-navigation/drawer';
-import { ProfileBackground } from 'assets/images';
 import { Back, ContactUs, LogOut, Privcy } from 'assets/svgs';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
 import { useAppDispatch } from 'src/redux/store';
-import AuthSlice from 'src/redux/auth';
+import AuthSlice, { selectCurrentUser } from 'src/redux/auth';
+import { useSelector } from 'react-redux';
+import FastImage from 'react-native-fast-image';
 
 const { height } = Dimensions.get("window")
 
 const CustomSidebarMenu = (props: any) => {
     const { navigate } = useNavigation<any>()
     const dispatch = useAppDispatch()
+    const USER = useSelector(selectCurrentUser)
     return (
         <SafeAreaView style={styles.Container}>
             <DrawerContentScrollView {...props}>
                 <TouchableOpacity activeOpacity={.8} onPress={() => { navigate('Profile') }} style={styles.Row}>
                     <Back />
-                    <Image source={ProfileBackground} style={styles.Avatar} />
-                    <View>
-                        <Text style={styles.Name}>احمد خليفه</Text>
+                    <FastImage source={{ uri: USER?.image?.secure_url }} style={styles.Avatar} />
+                    <View style={{width:'100%',alignItems:'flex-start'}}>
+                        <Text numberOfLines={1} style={styles.Name}>{USER?.fullname}</Text>
                         <Text style={styles.Profile}>الملف الشخصي</Text>
                     </View>
                 </TouchableOpacity>

@@ -6,9 +6,9 @@ export const styles = StyleSheet.create({
     container: {
         width: 110,
         height: 160,
+        borderRadius: 10,
     },
     imageStyle: {
-        borderRadius: 10,
     },
     Heart: {
         position: 'absolute',

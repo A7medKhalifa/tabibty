@@ -66,6 +66,17 @@ const slice = createSlice({
     })
 
 
+    //doValidateOTP
+    builder.addCase(thunks.doValidateOTP.fulfilled, (state, action) => {
+      state.verivied = true
+    });
+    builder.addCase(thunks.doValidateOTP.rejected, (state, action: any) => {
+      Toast.show({
+        type: "error",
+        text1: action.payload.data.message,
+      })
+    })
+
     //doForgetPassword
     builder.addCase(thunks.doForgetPassword.fulfilled, (state, action) => {
       state.verivied2 = true
@@ -82,6 +93,30 @@ const slice = createSlice({
     })
 
 
+    //doGetProfile
+    builder.addCase(thunks.doGetProfile.fulfilled, (state, action) => {
+      state.currentUser = action?.payload?.data
+    });
+    builder.addCase(thunks.doGetProfile.rejected, (state, action: any) => {
+      Toast.show({
+        type: "error",
+        text1: action.payload.data.message,
+      })
+    })
+
+
+    //doEditProfile
+    builder.addCase(thunks.doEditProfile.fulfilled, (state, action) => {
+      // state.currentUser = action?.payload?.data
+      state.signedUp = true
+    });
+    builder.addCase(thunks.doEditProfile.rejected, (state, action: any) => {
+      Toast.show({
+        type: "error",
+        text1: action.payload.data.message,
+      })
+    })
+
 
     //doResetPassword
     builder.addCase(thunks.doResetPassword.fulfilled, (state, action) => {
@@ -92,6 +127,23 @@ const slice = createSlice({
       })
     });
     builder.addCase(thunks.doResetPassword.rejected, (state, action: any) => {
+      Toast.show({
+        type: "error",
+        text1: action.payload.data.message,
+      })
+    })
+
+
+
+    //doChangePassword
+    builder.addCase(thunks.doChangePassword.fulfilled, (state, action) => {
+      state.signedUp = true
+      Toast.show({
+        type: "success",
+        text1: action.payload.message,
+      })
+    });
+    builder.addCase(thunks.doChangePassword.rejected, (state, action: any) => {
       Toast.show({
         type: "error",
         text1: action.payload.data.message,

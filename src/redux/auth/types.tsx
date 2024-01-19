@@ -5,12 +5,16 @@ interface userState {
     isAuth: boolean,
     currentUser: {
         token: string;
-        city: string;
+        city: any;
         email: string;
         fullname: string;
         gender: string;
-        governorate: string;
-        id: number
+        governorate: any;
+        id: number;
+        image:{
+            public_id:any
+            secure_url:any
+        }
     },
     governorates: [
         {
@@ -31,8 +35,7 @@ export const initialState: userState = {
     verivied: false,
     verivied2: false,
     isAuth: false,
-    currentUser: {
-    },
+    currentUser: {},
     cities:[],
     governorates:[]
 }

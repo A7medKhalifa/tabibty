@@ -10,7 +10,8 @@ import { useNavigation } from '@react-navigation/native'
 import { useAppDispatch } from 'src/redux/store'
 import AppThunks from 'src/redux/app/thunks'
 import { useSelector } from 'react-redux'
-import { selectHomeData } from 'src/redux/app'
+import AppSlice, { selectHomeData } from 'src/redux/app'
+import AuthThunks from 'store/auth/thunks'
 
 const HomeScreen = () => {
     const navigation = useNavigation<any>()
@@ -20,13 +21,17 @@ const HomeScreen = () => {
     React.useEffect(() => {
         const RenderFunction = navigation.addListener('focus', () => {
             setLoading(true)
+            dispatch(AppSlice.changeDone(false))
+            dispatch(AppThunks.doGetFavorites())
+            dispatch(AuthThunks.doGetProfile())
+            dispatch(AppThunks.doGetSaves())
             dispatch(AppThunks.doGetHomeData()).then(() => {
                 setLoading(false)
             })
         })
         return RenderFunction
     }, [navigation])
-    
+
     return (
         <SafeAreaView edges={['top']} style={styles.Container}>
             <Text style={styles.Header}>طبيبتي</Text>

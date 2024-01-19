@@ -69,6 +69,13 @@ const styles = StyleSheet.create({
         color: Colors().gray,
         marginLeft: 10
     },
+    RateText2: {
+        fontWeight: '500',
+        fontFamily: Fonts.Messiri,
+        color: Colors().gray,
+        // marginLeft: 10,
+        textAlign: 'right',
+    },
     Rate: {
         fontSize: 14,
         fontWeight: '500',
@@ -82,6 +89,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 30
+    },
+    FavButton: {
+        width: 40,
+        height: 50,
+        alignItems: 'center',
+        marginLeft: 20,
+        justifyContent: 'space-between',
     },
     customRatingBarStyle: {
         justifyContent: 'center',
@@ -99,6 +113,29 @@ const styles = StyleSheet.create({
         color: Colors().lblack,
         fontWeight: '600',
         fontFamily: Fonts.Messiri
+    },
+    ButtonText2: {
+        color: Colors().lblack,
+        fontWeight: '600',
+        fontFamily: Fonts.Messiri,
+        fontSize: 15,
+        textAlign: 'right',
+    },
+    Star: {
+        marginLeft: 4
+    },
+    RateText3: {
+        fontWeight: '500',
+        color: '#8B8D97',
+        fontFamily: Fonts.Messiri,
+        fontSize: 16,
+        marginLeft: 10
+    },
+    RateContainer: {
+        flexDirection: 'row',
+        marginVertical: 40,
+        alignSelf: 'center',
+        alignItems: 'center'
     }
 })
 

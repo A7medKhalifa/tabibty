@@ -16,8 +16,8 @@
     "paths": {
       "components": ["./src/components/index.ts"],
       "components/*": ["./src/components/*"],
-      // "store": ["src/store/index.ts"],
-      // "store/*": ["./src/redux/*"],
+      "store": ["src/store/index.ts"],
+      "store/*": ["./src/redux/*"],
       "navigation": ["src/navigation/index.tsx"],  
       "theme": ["src/theme/index.ts"],
       "theme/*": ["./src/theme/*"],

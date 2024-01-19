@@ -26,11 +26,15 @@ const BookmarkScreen = () => {
     return (
         <SafeAreaView edges={['top']} style={styles.Container}>
             <Header Title='العناصر المحفوظة' />
-            <ScrollView style={{ marginTop: 10 }} showsVerticalScrollIndicator={false}>
-                <Text style={[styles.Title]}>مقالات تم حفظها</Text>
-                <ArticleCardsList isLoading={Loading} data={Saves} />
-            </ScrollView>
-
+            {Saves?.length != 0
+                ? <ScrollView style={{ marginTop: 10 }} showsVerticalScrollIndicator={false}>
+                    <Text style={[styles.Title]}>مقالات تم حفظها</Text>
+                    <ArticleCardsList isLoading={Loading} data={Saves} />
+                </ScrollView>
+                :
+                <View style={styles.EmptyContainer}>
+                    <Text style={styles.EmptyText}>لا يوجد مقالات محفوظة </Text>
+                </View>}
         </SafeAreaView>
     )
 }

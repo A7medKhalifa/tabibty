@@ -26,6 +26,7 @@ type TInput = {
     setInd?: any;
     selectedIndex?: number;
     setSelectedIndex?: any;
+    exixted?: any
 };
 export const DropDown = ({
     Label,
@@ -42,10 +43,32 @@ export const DropDown = ({
     setChoosen,
     setFieldValue,
     setInd,
-    selectedIndex,
-    setSelectedIndex,
+    exixted
 }: InputProps & TInput) => {
+    const [selectedIndex, setSelectedIndex] = React.useState<any>(null)
+    React.useEffect(() => {
+        const index = data?.findIndex((governorate: any) => governorate?.governorate_name_ar === exixted);
+        exixted && setSelectedIndex(index)
+        console.log("Index of فيصل:", index);
+    }, [])
+    // React.useEffect(() => {
+    //     exixted &&
+    //     data?.some((object: any, idx: number) => {
+    //         if (object?.governorate_name_ar === exixted?.governorate_name_ar) {
+    //             // setIndex(idx)
+    //             return true;
+    //         }
+    //     });
 
+    //     data?.some((object: any, idx: number) => {
+    //         if (object?.city_name_ar === exixted?.city_name_ar) {
+    //             setIndex2(idx)
+    //             return true;
+    //         }
+    //     });
+    //     exixted != undefined && (City == undefined && setSelectedIndex(index))
+    //     exixted != undefined && (City && setSelectedIndex(index2))
+    // }, [City, selectedIndex])
 
     const onShow = (value: boolean) => {
         return (
@@ -72,7 +95,7 @@ export const DropDown = ({
                         color: selectedIndex == null ? Colors().border : Colors().black,
                         fontFamily: Fonts.Messiri,
                         marginRight: 10
-                    }}>{(data && selectedIndex != null) ? (City ? data[selectedIndex]?.city_name_ar : data[selectedIndex]?.governorate_name_ar) : name}</Text>
+                    }}>{(data && selectedIndex != null) ? data[selectedIndex]?.governorate_name_ar : name}</Text>
                     {Icon && Icon}
                 </View>
             </TouchableOpacity>
@@ -83,7 +106,6 @@ export const DropDown = ({
 
             <Modal
                 selectorsShow={selectorsShow}
-                City={City}
                 Label={Label}
                 onShow={onShow}
                 data={data}

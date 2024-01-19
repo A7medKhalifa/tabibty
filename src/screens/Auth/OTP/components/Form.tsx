@@ -52,7 +52,7 @@ const Form = ({ email, type }: { email?: any, type?: any }) => {
         type == 'forget'
             ?
             (
-                dispatch(AuthThunks.doVerify({
+                dispatch(AuthThunks.doValidateOTP({
                     email,
                     otp: value
                 })).then(() => setLoading(false))

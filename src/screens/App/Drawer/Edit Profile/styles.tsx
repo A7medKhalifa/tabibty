@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
         backgroundColor: Colors().white,
         // paddingHorizontal:22
     },
+    InputsContainer: {
+        paddingHorizontal: 25,
+    },
     LinearGradient: {
         height: '100%',
         width: '100%',
@@ -32,10 +35,10 @@ const styles = StyleSheet.create({
     Avatar: {
         height: 190,
         width: 190,
-        borderRadius: 100,
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'flex-end',
+        borderRadius: 200,
         paddingBottom: 5
     },
     CameraContainer: {

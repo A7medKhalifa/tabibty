@@ -11,7 +11,7 @@ import { BASE_URL } from '../../.env.json'
 export const api = create({
     baseURL: BASE_URL,
     headers: {
-        "Accept": "application/json",
+        "Accept": "application/json",        
     }
 })
 
@@ -36,7 +36,7 @@ const initAxios = (store: TStore) => {
         const authHeaders = { Authorization, };
         // assign(config.headers, authHeaders);
         assign(config.headers, {
-            "Authorization": authHeaders
+            "Authorization": authHeaders,
         });
         return config;
     };

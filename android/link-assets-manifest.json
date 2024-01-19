@@ -1,0 +1,41 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Amiri-Bold.ttf",
+      "sha1": "7ef8ec23e521e60b26113f577e4d61bcb7d04bfc"
+    },
+    {
+      "path": "src/assets/fonts/Amiri-BoldItalic.ttf",
+      "sha1": "bd71db7f9aae09655cb5a30623ffe2a27c3015c6"
+    },
+    {
+      "path": "src/assets/fonts/Amiri-Italic.ttf",
+      "sha1": "5754ff37c273dadaf4d11a2965ea01055cbcb5e8"
+    },
+    {
+      "path": "src/assets/fonts/Amiri-Regular.ttf",
+      "sha1": "54761ecc5c999143024e969a8416465f91edc0e3"
+    },
+    {
+      "path": "src/assets/fonts/ElMessiri-Bold.ttf",
+      "sha1": "3f998f03a24b315237d235b5bfb762f53b15c8d4"
+    },
+    {
+      "path": "src/assets/fonts/ElMessiri-Medium.ttf",
+      "sha1": "ab48ee557014fc3cbc56bfa966d5008c471c0617"
+    },
+    {
+      "path": "src/assets/fonts/ElMessiri-Regular.ttf",
+      "sha1": "9cefd3b0a4ae95a9143972655fdba0e9aea22eef"
+    },
+    {
+      "path": "src/assets/fonts/ElMessiri-SemiBold.ttf",
+      "sha1": "2c50820b88aca9abeb20aba06dea42a2e4b793a1"
+    },
+    {
+      "path": "src/assets/fonts/ElMessiri-VariableFont_wght.ttf",
+      "sha1": "c0e225935901677fecbe48d3234cf7dae53b828e"
+    }
+  ]
+}

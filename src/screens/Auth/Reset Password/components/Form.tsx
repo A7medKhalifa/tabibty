@@ -27,14 +27,9 @@ function Form({ email, otp }: any) {
       initialValues={reset_initial_values}
       validationSchema={ResetSchema}
       onSubmit={values => {
-        console.log({
-          email: email,
-          otp: Number(otp),
-          newPassword: values.Password
-        })
         dispatch(AuthThunks.doResetPassword({
           email: email,
-          otp: Number(otp),
+          otp: otp,
           newPassword: values.Password
         }))
       }}>

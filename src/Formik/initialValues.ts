@@ -15,7 +15,7 @@ export const regist_initial_values = {
     ConfirmPassword: '',
     City: '',
     Government: '',
-    gender: '',
+    // gender: '',
 };
 
 export const reset_initial_values = {
@@ -29,3 +29,9 @@ export const ContactUs_initial_values = {
     message: '',
 };
 
+
+export const change_initial_values = {
+    OldPassword: '',
+    Password: '',
+    ConfirmPassword: '',
+};

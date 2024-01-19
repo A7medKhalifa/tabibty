@@ -85,6 +85,12 @@ const styles = StyleSheet.create({
         marginTop: 15,
         width: '90%',
         alignSelf: 'center'
+    },
+    EditPassword: {
+        textAlign: 'center',
+        textDecorationLine: 'underline',
+        marginTop: 30,
+        color: Colors().black
     }
 })
 

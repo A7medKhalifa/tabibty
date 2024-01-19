@@ -13,6 +13,7 @@ const HomeCardsList = ({
     lab?: boolean;
     isLoading?: boolean
 }) => {
+
     return (
         isLoading ?
             <FlatList

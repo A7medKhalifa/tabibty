@@ -8,11 +8,12 @@ import Verivied from './Verivied.svg'
 import StartIcon from './StartIcon.svg'
 import Star from './Star.svg'
 import FillHeart from './FillHeart.svg'
+import EmptyHeart from './EmptyHeart.svg'
 import Bookmark from './Bookmark.svg'
 import Call from './Call.svg'
 import Location from './Location.svg'
 import Fav from './Fav.svg'
-import Share from './Share.svg'
+import ShareIcon from './ShareIcon.svg'
 import EmptyStar from './EmptyStar.svg'
 import Send from './Send.svg'
 
@@ -37,6 +38,9 @@ import LogOut from './LogOut.svg'
 import Earth from './Earth.svg'
 import City from './City.svg'
 import EmptyBookmark from './EmptyBookmark.svg'
+import FavText from './FavText.svg'
+import Dots from './Dots.svg'
+
 
 
 
@@ -51,11 +55,12 @@ export {
     StartIcon,
     Star,
     FillHeart,
+    EmptyHeart,
     Bookmark,
     Call,
     Location,
     Fav,
-    Share,
+    ShareIcon,
     EmptyStar,
     Send,
 
@@ -79,5 +84,7 @@ export {
 
     Earth,
     City,
-    EmptyBookmark
+    EmptyBookmark,
+    FavText,
+    Dots
 }

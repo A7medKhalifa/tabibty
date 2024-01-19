@@ -6,10 +6,10 @@ export const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: 135,
-        marginBottom: 17
+        marginBottom: 17,
+        borderRadius: 10,
     },
     imageStyle: {
-        borderRadius: 10,
     },
     Heart: {
         position: 'absolute',

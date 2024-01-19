@@ -41,4 +41,34 @@ export const styles = StyleSheet.create({
         marginBottom: 30,
         lineHeight: 18
     },
+    ImageContainer: {
+        height: 100,
+        width: 100,
+        borderRadius: 200,
+        alignSelf: 'center',
+        backgroundColor: Colors().lblack,
+        marginBottom: 30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: -10
+    },
+    Image: {
+        height: 100,
+        width: 100,
+        borderRadius: 100,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    CameraContainer: {
+        height: 30,
+        width: 30,
+        backgroundColor: '#fff',
+        borderRadius: 30,
+        alignItems: 'center',
+        justifyContent: 'center',
+        bottom: 5,
+        alignSelf: 'center',
+        position: 'absolute'
+    }
 })

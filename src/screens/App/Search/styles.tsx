@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
         marginRight: 15,
         width: '90%',
         textAlign: 'right',
-        height: '100%'
+        height: '100%',
+        color: Colors().black
     },
     SearchText: {
         textAlign: 'right',

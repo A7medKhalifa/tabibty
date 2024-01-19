@@ -5,14 +5,17 @@ import LinearGradient from 'react-native-linear-gradient'
 
 const Gender = ({
     setFieldValue,
+    Selected,
     ...props
 }: {
     setFieldValue: any
+    Selected?: any
 }) => {
     const [selected, setSelected] = React.useState<number>(1)
     React.useEffect(() => {
-        setFieldValue('gender', 'FEMALE')
-    }, [])
+        Selected == 'MALE' ? setFieldValue('gender', 'MALE') : setFieldValue('gender', 'FEMALE')
+        Selected == 'MALE' ? setSelected(0) : setSelected(1)
+    }, [Selected])
     return (
         <View style={{
             alignSelf: 'flex-end',

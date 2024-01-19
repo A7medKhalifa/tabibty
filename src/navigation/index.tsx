@@ -14,6 +14,7 @@ import ContactUsScreen from 'screens/App/Drawer/Contact Us';
 import PrivacyAndPolicyScreen from 'screens/App/Drawer/Privacy and Policy';
 import ProfileScreen from 'screens/App/Drawer/Profile';
 import EditProfileScreen from 'screens/App/Drawer/Edit Profile';
+import ChangePasswordScreen from 'screens/App/Drawer/Change Password';
 
 export type RootStack = {
     Splash: undefined;
@@ -29,16 +30,20 @@ export type RootStack = {
     Privcy: undefined;
     Profile: undefined;
     EditProfile: undefined;
+    ChangePassword: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStack>();
 
 const RootStackScreens = () => {
+    const linking = {
+        prefixes: ['tabibty://'],
+    };
     const [Splash, setSplash] = React.useState<boolean>(true)
     const IsAuth = useSelector(selectIsAuth)
 
     return (
-        <NavigationContainer>
+        <NavigationContainer linking={linking}>
             <RootStack.Navigator
                 screenOptions={{ headerShown: false }
                 }
@@ -47,7 +52,10 @@ const RootStackScreens = () => {
                 {/* {Splash && <RootStack.Screen name="Splash" component={SplashScreen} />} */}
                 {
                     !IsAuth ?
-                        <RootStack.Screen name="Auth" component={AuthStackScreens} />
+                        <>
+                            <RootStack.Screen name="Auth" component={AuthStackScreens} />
+                            <RootStack.Screen name="Details" component={DetailScreen} />
+                        </>
 
                         :
                         <>
@@ -62,7 +70,9 @@ const RootStackScreens = () => {
                             <RootStack.Screen name="Privcy" component={PrivacyAndPolicyScreen} />
                             <RootStack.Screen name="Profile" component={ProfileScreen} />
                             <RootStack.Screen name="EditProfile" component={EditProfileScreen} />
-                              </>
+                            <RootStack.Screen name="ChangePassword" component={ChangePasswordScreen} />
+
+                        </>
                 }
 
             </RootStack.Navigator>

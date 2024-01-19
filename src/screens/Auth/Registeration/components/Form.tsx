@@ -3,17 +3,19 @@ import { Formik } from 'formik';
 import { regist_initial_values } from 'src/Formik/initialValues';
 import { RegistSchema } from 'src/Formik/schema';
 import CustomInput from 'components/Input';
-import { View } from 'react-native';
+import { ActivityIndicator, TouchableOpacity, View } from 'react-native';
 import { styles } from '../styles';
 import CustomButton from 'components/Button';
-import { City, Earth, Lock, Mail, User } from 'assets/svgs';
+import { Camera, City, Earth, Lock, Mail, User } from 'assets/svgs';
 import { useAppDispatch } from 'src/redux/store';
 import AuthThunks from 'src/redux/auth/thunks';
 import { useSelector } from 'react-redux';
 import AuthSlice, { selectCities, selectGovernorates, selectSignedUp } from 'src/redux/auth';
 import { useNavigation } from '@react-navigation/native';
 import { DropDown } from 'components/Drop down';
-import Gender from 'components/Gender';
+import { DropDownCity } from 'components/Drop down city'
+import useLibraryPermission from 'src/hooks/useLibraryPermission';
+import FastImage from 'react-native-fast-image';
 
 function Form() {
   const { navigate } = useNavigation<any>()
@@ -27,6 +29,8 @@ function Form() {
   const [selectorsShow, updateShowSelectors] = React.useState({ UniversityName: false, CollegeName: false, });
   const [selectedIndex, setSelectedIndex] = React.useState<any>(null)
   const [selectedIndexCity, setSelectedIndexCity] = React.useState<any>(null)
+  const [load, setLoad] = React.useState<any>(false)
+  const { pick, source } = useLibraryPermission()
   const [{ Government, Cities }, setData,] = React.useState({
     Government: { Government: { id: 0, name: null } },
     Cities: { Cities: { id: 0, name: null } },
@@ -38,11 +42,12 @@ function Form() {
   }, [SignedUp])
 
   React.useEffect(() => {
-    ind != null && dispatch(AuthThunks.doGetCities(ind))
+    ind != null && dispatch(AuthThunks.doGetCities(ind+1))
   }, [ind])
   React.useEffect(() => {
     setSelectedIndexCity(null)
   }, [selectedIndex])
+
   return (
     <Formik
       initialValues={regist_initial_values}
@@ -54,14 +59,30 @@ function Form() {
           email: values.Email,
           password: values.Password,
           fullname: values.FullName,
-          city: values.City?.city_name_ar,
-          governorate: values?.Government?.governorate_name_ar,
-          gender:values?.gender
+          city: values.City,
+          governorate: values?.Government,
+          image: {
+            secure_url: source?.secure_url,
+            public_id: source?.public_id
+          }
         })).then(() => setLoading(false))
       }}>
       {props => (
         <>
           <View style={styles.InputsContainer}>
+            <TouchableOpacity onPress={() => { pick(dispatch, setLoad) }} activeOpacity={.8} style={styles.ImageContainer}>
+              {load ?
+                <FastImage style={styles.Image} source={{ uri: 'https://img.freepik.com/vecteurs-premium/femme-bande-dessinee-avatar-blonde_8462-3.jpg' }}>
+                  <ActivityIndicator size={25} color={'#fff'} />
+                </FastImage>
+                :
+                <FastImage style={styles.Image} resizeMode='contain' source={{ uri: source == undefined ? 'https://img.freepik.com/vecteurs-premium/femme-bande-dessinee-avatar-blonde_8462-3.jpg' : source?.secure_url }} />
+              }
+              <View style={styles.CameraContainer}>
+                <Camera fill={'#000'} height={20} width={20} />
+              </View>
+            </TouchableOpacity>
+
             <CustomInput
               {...props}
               name="الاسم"
@@ -91,25 +112,23 @@ function Form() {
               }}
               Icon={<Earth />}
             />
-            <DropDown
+            <DropDownCity
               {...props}
-              City
+              ind={ind}
+              City={true}
               Label='City'
               name='أختر المدينه'
               selectorsShow={selectorsShow}
               updateShowSelectors={updateShowSelectors}
               data={AllCities}
-              selectedIndex={selectedIndexCity}
-              setSelectedIndex={setSelectedIndexCity}
-              disabled={ind == null}
               setChoosen={(value: any) => {
-                setData((prev) => ({ ...prev, Government: value }));
+                setData((prev) => ({ ...prev, Cities: value }));
               }}
               Icon={<City />}
             />
             <CustomInput
               {...props}
-              name="كلمة السر"
+              name="كلمة المرور"
               Label={'Password'}
               keyboardType='email-address'
               secureTextEntry
@@ -117,15 +136,15 @@ function Form() {
             />
             <CustomInput
               {...props}
-              name="تأكيد كلمة السر"
+              name="تأكيد كلمة المرور"
               Label={'ConfirmPassword'}
               keyboardType='email-address'
               secureTextEntry
               Icon={<Lock />}
             />
-            <Gender
+            {/* <Gender
               {...props}
-            />
+            /> */}
 
 
             <CustomButton loading={loading} style={{ marginTop: 75, marginBottom: 40 }} title="إنشاء حساب" onPress={() => props.handleSubmit()} />

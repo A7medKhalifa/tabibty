@@ -5,16 +5,19 @@ import { Provider } from 'react-redux';
 import { Store } from 'src/redux/store';
 import { StatusBar } from 'react-native';
 import RootStackScreens from 'navigation';
+import { MenuProvider } from 'react-native-popup-menu';
 
 const App = () => {
   return (
-    <Provider store={Store().store}>
-      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <StatusBar barStyle={'dark-content'} backgroundColor={'#fff'} />
+    <MenuProvider>
+      <Provider store={Store().store}>
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+          <StatusBar barStyle={'dark-content'} backgroundColor={'#fff'} />
           <RootStackScreens />
-        <Toast topOffset={50} />
-      </SafeAreaProvider>
-    </Provider>
+          <Toast topOffset={50} />
+        </SafeAreaProvider>
+      </Provider>
+    </MenuProvider>
   )
 }
 

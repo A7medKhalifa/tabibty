@@ -4,7 +4,7 @@ import Fonts from "theme/fonsFamily";
 
 const styles = StyleSheet.create({
     Container: {
-        flex: 1,
+        height: '100%',
         backgroundColor: Colors().white,
     },
     secContainer: {
@@ -20,10 +20,12 @@ const styles = StyleSheet.create({
     ImageContainer: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
+        width: '100%',
     },
     TextContainer: {
         alignItems: 'flex-end',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        width: '90%'
     },
     Title: {
         fontSize: 16,
@@ -60,7 +62,8 @@ const styles = StyleSheet.create({
         color: Colors().lblack,
         textAlign: 'right',
         marginBottom: 5,
-        marginLeft: 10
+        marginLeft: 10,
+        width: '80%',
     },
     Ratedescription: {
         fontSize: 12,
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         color: Colors().lblack,
         textAlign: 'right',
-        width: '55%',
+        // width: '55%',
     },
     Date: {
         color: Colors().gray
@@ -83,7 +86,9 @@ const styles = StyleSheet.create({
         height: Platform.OS == 'ios' ? 80 : 70,
         width: '100%',
         // backgroundColor: '#f00',
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        // position: 'absolute',
+        // bottom: 20
     },
     InputContainer: {
         flexDirection: 'row',
@@ -101,7 +106,43 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         height: '100%',
         fontWeight: '600',
-        fontFamily: Fonts.Messiri
+        fontFamily: Fonts.Messiri,
+        color: '#000'
+    },
+    EmptyContainer: {
+        height: 400,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    EmptyText: {
+        fontSize: 16,
+        fontWeight: '500',
+        fontFamily: Fonts.Messiri,
+        color: Colors().gray,
+        marginTop: -50
+    },
+    DeleteModal: {
+        padding: 20,
+        width: '100%',
+        backgroundColor: Colors().white,
+        borderRadius: 20
+    },
+    DeleteModalTitle: {
+        textAlign: 'center',
+        fontSize: 18,
+        fontFamily: Fonts.Messiri,
+        fontWeight: '500',
+        color: Colors().lblack,
+    },
+    ButtonRow: {
+        flexDirection: 'row',
+        marginTop: 30,
+        alignItems: 'center',
+        width: '100%',
+        justifyContent: 'space-around'
+    },
+    CustomButton: {
+        width: '45%',
     }
 })
 

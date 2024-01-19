@@ -6,7 +6,6 @@ import { Colors } from 'theme/colors';
 
 const Modal = ({
     selectorsShow,
-    City,
     Label,
     onShow,
     data,
@@ -36,14 +35,14 @@ const Modal = ({
                             setChoosen({ ...choosen, [Label.replace(/\s/g, '')]: item })
                             onShow(false)
                             setFieldValue(Label.replace(/\s/g, ''), item)
-                            City ? null : setInd(item?.id)
+                            setInd(index)
                         }}
                             activeOpacity={.8}
                             style={styles.DataContainer}>
                             <View style={styles.Circle}>
                                 {index == selectedIndex && <View style={styles.SmallCircle} />}
                             </View>
-                            <Text style={{ color: Colors().black }}>{City ? item?.city_name_ar : item?.governorate_name_ar}</Text>
+                            <Text style={{ color: Colors().black }}>{item?.governorate_name_ar}</Text>
                         </TouchableOpacity>
                     )}
                 />

@@ -47,7 +47,7 @@ function Form() {
               Icon={<Mail />}
             />
 
-            <CustomButton loading={loading} style={{ marginTop: 275 }} title="أرسل كلمة السر" onPress={() => props.handleSubmit()} />
+            <CustomButton loading={loading} style={{ marginTop: 275 }} title="أرسل كلمة المرور" onPress={() => props.handleSubmit()} />
 
           </View>
         </>
